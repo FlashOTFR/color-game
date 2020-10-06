@@ -1,0 +1,26 @@
+body {
+    background-color: #232323;
+}
+
+.square {
+    width: 30%;
+    margin: 1.66%;
+    padding-bottom: 30%;
+    background: purple;
+}
+
+.box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 600px; 
+    margin: 0 auto;
+}
+
+h1 {
+    color: white;
+}
+
+#message {
+    color: white;
+}

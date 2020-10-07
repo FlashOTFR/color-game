@@ -5,6 +5,7 @@ const announce = document.querySelector("#announce");
 const resetButton = document.querySelector("#reset");
 const easyButton = document.querySelector("#easy");
 const hardButton = document.querySelector("#hard");
+const headSpace = document.querySelector(".head-space");
 
 
 const randomColor = () => {
@@ -37,21 +38,26 @@ const generateRandomColors = (num) => {
     return arr
 }
 
-
+let easyMode = false;
 let colors = generateRandomColors(6);
 let winningColor = pickColor();
 //show color winning color
 display.textContent = winningColor;
 
 resetButton.addEventListener("click", () => {
+    if(!easyMode){
         colors = generateRandomColors(6);
-        winningColor = pickColor();
-        display.textContent = winningColor;
-        resetButton.textContent = "New Colors";
-        announce.style.backgroundColor = "#232323";
-        for(let i = 0; i < squares.length; i++){
-            squares[i].style.backgroundColor = colors[i];
-        }
+    }else{
+        colors = generateRandomColors(3);
+    }
+    message.textContent = "";
+    winningColor = pickColor();
+    display.textContent = winningColor;
+    resetButton.textContent = "New Colors";
+    headSpace.style.backgroundColor = "steelblue";
+    for(let i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = colors[i];
+    }  
 })
 
 easyButton.addEventListener("click", () => {
@@ -60,6 +66,9 @@ easyButton.addEventListener("click", () => {
     colors = generateRandomColors(3);
     winningColor = pickColor();
     display.textContent = winningColor;
+    easyMode = true;
+    message.textContent = "";
+    headSpace.style.backgroundColor = "steelblue";
     for(let i = 0; i < squares.length; i++){
         if(i < 3){
             squares[i].style.backgroundColor = colors[i];
@@ -75,6 +84,9 @@ hardButton.addEventListener("click", () => {
     colors = generateRandomColors(6);
     winningColor = pickColor();
     display.textContent = winningColor;
+    easyMode = false;
+    message.textContent = "";
+    headSpace.style.backgroundColor = "steelblue";
     for(let i = 0; i < squares.length; i++){
         squares[i].style.backgroundColor = colors[i];
         if(i > 2){
@@ -95,7 +107,7 @@ for(let i = 0; i < squares.length; i++){
         if(clickedColor === winningColor){
             message.textContent = "YOU WIN";
             changeColors(clickedColor);
-            announce.style.backgroundColor = clickedColor;
+            headSpace.style.backgroundColor = clickedColor;
             resetButton.textContent = "Play Again?";
         }else {
             squares[i].style.backgroundColor = "#232323";

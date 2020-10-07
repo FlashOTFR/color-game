@@ -7,12 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id = "announce">THE GREAT <span id="color-display">RGB</span> COLOR GAME</h1>
+    <div class="head-space">
+        <h1 id = "announce">THE GREAT 
+            <br>
+            <span id="color-display">RGB</span> 
+            <br>
+            COLOR GAME</h1>
+    </div>
+
     <div id = "stripe">
         <button id ="reset">New Colors</button>
         <span id = "message"></span>
-        <button id = "easy">EASY</button>
-        <button id = "hard" class = "selected">HARD</button>
+        <div class="modes">
+            <button id = "easy">EASY</button>
+            <button id = "hard" class = "selected">HARD</button>
+        </div>
     </div>
     <div class="box">
         <div class="square"></div>

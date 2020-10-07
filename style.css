@@ -1,5 +1,7 @@
 body {
     background-color: #232323;
+    margin: 0;
+    font-family: "Montserrat" "Avenir";
 }
 
 .square {
@@ -7,6 +9,7 @@ body {
     margin: 1.66%;
     padding-bottom: 30%;
     background: purple;
+    border-radius: 16px;
 }
 
 .box {
@@ -15,10 +18,17 @@ body {
     flex-wrap: wrap;
     max-width: 600px; 
     margin: 0 auto;
+    margin-top: 10%
 }
 
 #announce {
     color: white;
+    text-align: center;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.1;
+    padding: 20px 0;
 }
 
 
@@ -31,5 +41,35 @@ body {
 }
 
 .selected {
-    background-color: blue;
+    background-color: steelblue;
+    color: white;
+}
+
+button {
+    background-color: white;
+    border: none;
+    text-transform: uppercase;
+    height: 100%;
+    transition: 0.4s;
+}
+
+button:hover {
+    background-color: steelblue;
+    color: white;
+}
+
+.head-space {
+    display: flex;
+    justify-content: center;
+    background-color: steelblue;
+}
+
+#color-display {
+    font-size: 200%;
+}
+
+#message {
+    font-weight: 700;
+    height: 100%;
+    text-align: center;
 }

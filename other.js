@@ -3,6 +3,9 @@ const display = document.querySelector("#color-display");
 const message = document.querySelector("#message");
 const announce = document.querySelector("#announce");
 const resetButton = document.querySelector("#reset");
+const easyButton = document.querySelector("#easy");
+const hardButton = document.querySelector("#hard");
+
 
 const randomColor = () => {
     let r = Math.floor(Math.random() * 256);
@@ -52,6 +55,17 @@ resetButton.addEventListener("click", () => {
     }
 })
 
+easyButton.addEventListener("click", () => {
+    easyButton.classList.add("selected");
+    hardButton.classList.remove("selected");
+    colors = generateRandomColors(3);
+})
+
+hardButton.addEventListener("click", () => {
+    easyButton.classList.remove("selected");
+    hardButton.classList.add("selected");
+    colors = generateRandomColors(6);
+})
 
 for(let i = 0; i < squares.length; i++){
     //add color styles to squares
@@ -72,7 +86,7 @@ for(let i = 0; i < squares.length; i++){
             message.textContent = "Try Again";
         }
     })
-
+    
 }
 
 

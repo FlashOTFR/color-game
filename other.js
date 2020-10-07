@@ -45,6 +45,8 @@ resetButton.addEventListener("click", () => {
     colors = generateRandomColors(6);
     winningColor = pickColor();
     display.textContent = winningColor;
+    resetButton.textContent = "New Colors";
+    announce.style.backgroundColor = "#232323";
     for(let i = 0; i < squares.length; i++){
         squares[i].style.backgroundColor = colors[i];
     }
@@ -64,6 +66,7 @@ for(let i = 0; i < squares.length; i++){
             message.textContent = "YOU WIN";
             changeColors(clickedColor);
             announce.style.backgroundColor = clickedColor;
+            resetButton.textContent = "Play Again?";
         }else {
             squares[i].style.backgroundColor = "#232323";
             message.textContent = "Try Again";

@@ -38,33 +38,49 @@ const generateRandomColors = (num) => {
 }
 
 
-
 let colors = generateRandomColors(6);
 let winningColor = pickColor();
 //show color winning color
 display.textContent = winningColor;
 
 resetButton.addEventListener("click", () => {
-    colors = generateRandomColors(6);
-    winningColor = pickColor();
-    display.textContent = winningColor;
-    resetButton.textContent = "New Colors";
-    announce.style.backgroundColor = "#232323";
-    for(let i = 0; i < squares.length; i++){
-        squares[i].style.backgroundColor = colors[i];
-    }
+        colors = generateRandomColors(6);
+        winningColor = pickColor();
+        display.textContent = winningColor;
+        resetButton.textContent = "New Colors";
+        announce.style.backgroundColor = "#232323";
+        for(let i = 0; i < squares.length; i++){
+            squares[i].style.backgroundColor = colors[i];
+        }
 })
 
 easyButton.addEventListener("click", () => {
     easyButton.classList.add("selected");
     hardButton.classList.remove("selected");
     colors = generateRandomColors(3);
+    winningColor = pickColor();
+    display.textContent = winningColor;
+    for(let i = 0; i < squares.length; i++){
+        if(i < 3){
+            squares[i].style.backgroundColor = colors[i];
+        }else{
+            squares[i].style.display = "none";
+        }
+    }
 })
 
 hardButton.addEventListener("click", () => {
     easyButton.classList.remove("selected");
     hardButton.classList.add("selected");
     colors = generateRandomColors(6);
+    winningColor = pickColor();
+    display.textContent = winningColor;
+    for(let i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = colors[i];
+        if(i > 2){
+            squares[i].style.display = "block";
+        }
+    }
 })
 
 for(let i = 0; i < squares.length; i++){
